@@ -6,6 +6,7 @@
 - Bruno Costa Amorim <br>
 - Maria Eduarda Santos Montel <br>
 - Andressa Carvalho de Sousa <br>
+- Gabriel Luca Santos Costa <br>
 
 ## Descrição do sistema
 Este sistema foi desenvolvido em linguagem C para realizar o cadastro e a cotação automática de seguro de veículos por linha de comando. Ele permite registrar informações do veículo e do condutor, calcular o valor do prêmio anual e mensal com base em regras de negócio específicas e armazenar as cotações em arquivo para consulta posterior.
