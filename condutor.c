@@ -3,31 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 
-// Funcao pra limpar o buffer do teclado
-static void limpar_buffer_condutor() {
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-}
-
-// Funcao pra validar o RG
-static int validar_rg(char *rg) {
-    if (strlen(rg) != 5) {
-        return 0;
-    }
-    for (int i = 0; i < 5; i++) {
-        if (!isdigit(rg[i])) {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-// Funcao pra validar a categoria da CNH
-static int validar_cnh(char cnh) {
-    cnh = toupper(cnh);
-    return (cnh == 'A' || cnh == 'B' || cnh == 'C');
-}
-
 void cadastrar_condutor(Condutor *c) {
     printf("\nPerfil do Condutor\n");
     
