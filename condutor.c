@@ -1,3 +1,8 @@
+#include "condutor.h"
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
 void cadastrar_condutor(Condutor *c) {
     printf("\nPerfil do Condutor\n");
     
