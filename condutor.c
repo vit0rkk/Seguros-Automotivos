@@ -3,6 +3,30 @@
 #include <string.h>
 #include <ctype.h>
 
+static void limpar_buffer_condutor() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
+// valida se o RG tem exatamente 5 dígitos numéricos
+int validar_rg(const char *rg) {
+    if (strlen(rg) != 5) {
+        return 0; // inválido
+    }
+    for (int i = 0; i < 5; i++) {
+        if (!isdigit((unsigned char)rg[i])) {
+            return 0; // invalido
+        }
+    }
+    return 1; // valido
+}
+
+// valida se a CNH é A, B ou C
+int validar_cnh(char cnh) {
+    cnh = toupper((unsigned char)cnh);
+    return (cnh == 'A' || cnh == 'B' || cnh == 'C');
+}
+
 void cadastrar_condutor(Condutor *c) {
     printf("\nPerfil do Condutor\n");
     

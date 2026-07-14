@@ -11,4 +11,7 @@ typedef struct {
 
 void cadastrar_condutor(Condutor *c);
 
+int validar_rg(const char *rg);
+int validar_cnh(char cnh);
+
 #endif
