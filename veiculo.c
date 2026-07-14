@@ -17,24 +17,37 @@ static int validar_tipo_veiculo(char t) {
 
 void cadastrar_veiculo(Veiculo *v) {
     printf("\nCadastro do Veiculo\n");
-    
-    printf("Marca: ");
-    fgets(v->marca, sizeof(v->marca), stdin);
-    //limpar o resto que sobrou do buffer se a marca for maio que o array
-    if(v->marca[strcspn(v->marca, "\n")] == '\0' && strlen(v->marca) == sizeof(v->marca) - 1) {
-        limpar_buffer_veiculo();
-    } else {
-        v->marca[strcspn(v->marca, "\n")] = 0;
-    }
+    //mudei para do-while para nao aceitar em branco
+   do {
+        printf("Marca: ");
+        fgets(v->marca, sizeof(v->marca), stdin);
 
-    printf("Modelo: ");
-    fgets(v->modelo, sizeof(v->modelo), stdin);
-    if(v->modelo[strcspn(v->modelo, "\n")] == '\0' && strlen(v->modelo) == sizeof(v->modelo) - 1) {
-        limpar_buffer_veiculo();
-    } else {
-        v->modelo[strcspn(v->modelo, "\n")] = 0;
-    }
+        if (v->marca[strcspn(v->marca, "\n")] == '\0' && strlen(v->marca) == sizeof(v->marca) - 1) {
+            limpar_buffer_veiculo();  // limpa excesso se tiver
+        } else {
+            v->marca[strcspn(v->marca, "\n")] = 0;  // remove '\n'
+        }
 
+        if (strlen(v->marca) == 0) {
+            printf("Erro: A marca nao pode ser vazia. Por favor, digite uma marca valida.\n");
+        }
+    } while (strlen(v->marca) == 0);
+
+    // editei o modelo para ser do-while tambem
+    do {
+        printf("Modelo: ");
+        fgets(v->modelo, sizeof(v->modelo), stdin);
+
+        if (v->modelo[strcspn(v->modelo, "\n")] == '\0' && strlen(v->modelo) == sizeof(v->modelo) - 1) {
+            limpar_buffer_veiculo();  // limpa excesso se tiver
+        } else {
+            v->modelo[strcspn(v->modelo, "\n")] = 0;  // remove '\n'
+        }
+
+        if (strlen(v->modelo) == 0) {
+            printf("Erro: O modelo nao pode ser vazio. Por favor, digite um modelo valido.\n");
+        }
+    } while (strlen(v->modelo) == 0);
     do {
         printf("Ano de fabricacao: ");
         if (scanf("%d", &v->ano) != 1 || v->ano < 1886) {
@@ -63,6 +76,5 @@ void cadastrar_veiculo(Veiculo *v) {
         }
     } while (!validar_tipo_veiculo(v->tipo));
 
-    limpar_buffer_veiculo();
 }
 
