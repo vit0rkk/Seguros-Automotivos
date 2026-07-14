@@ -46,3 +46,13 @@ static void nova_cotacao(Cotacao **lista, int *quantidade, int *capacidade) {
     printf("Cotacao cadastrada com sucesso! Premio anual: %.2f\n", c.premio_anual);
 }
 
+static void mostrar_menu(void) {
+    printf("\n--- SISTEMA DE COTACAO DE SEGURO ---\n");
+    printf("1 - Nova cotacao\n");
+    printf("2 - Listar todas\n");
+    printf("3 - Filtrar por nome\n");
+    printf("4 - Menor valor\n");
+    printf("5 - Salvar\n");
+    printf("0 - Salvar e sair\n");
+    printf("Escolha sua opcao: ");
+}
