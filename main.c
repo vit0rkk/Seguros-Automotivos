@@ -97,6 +97,11 @@ int main(void) {
         mostrar_menu();
 
         if (scanf("%d", &opcao) != 1) {
+            
+            if (feof(stdin)) {
+    printf("\nEntrada finalizada. Encerrando...\n");
+    break;
+}
 
             while (getchar() != '\n');
 
@@ -104,6 +109,11 @@ int main(void) {
 
             continue;
         }
+
+        if (feof(stdin)) {
+    printf("\nEntrada finalizada. Encerrando...\n");
+    break;
+}
 
         while (getchar() != '\n');
 

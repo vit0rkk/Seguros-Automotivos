@@ -1,5 +1,6 @@
 #include "condutor.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -58,6 +59,7 @@ void cadastrar_condutor(Condutor *c) {
     do {
         printf("Idade: ");
         if (scanf("%d", &c->idade) != 1 || c->idade < 18 || c->idade > 120) {
+            if (feof(stdin)) { printf("\nEntrada finalizada.\n"); exit(0); }
             printf("Erro: Idade invalida para condutor (minimo 18 anos).\n");
             c->idade = 0;
         }
@@ -67,6 +69,7 @@ void cadastrar_condutor(Condutor *c) {
     do {
         printf("Numero de sinistros nos ultimos 3 anos: ");
         if (scanf("%d", &c->sinistros) != 1 || c->sinistros < 0) {
+            if (feof(stdin)) { printf("\nEntrada finalizada.\n"); exit(0); }
             printf("Erro: Digite um numero valido de sinistros.\n");
             c->sinistros = -1;
         }

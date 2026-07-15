@@ -1,5 +1,6 @@
 #include "veiculo.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -49,6 +50,7 @@ void cadastrar_veiculo(Veiculo *v) {
         }
     } while (strlen(v->modelo) == 0);
     do {
+        if (feof(stdin)) { printf("\nEntrada finalizada.\n"); exit(0); }
         printf("Ano de fabricacao: ");
         if (scanf("%d", &v->ano) != 1 || v->ano < 1886) {
             printf("Erro: Ano invalido.\n");
@@ -60,6 +62,7 @@ void cadastrar_veiculo(Veiculo *v) {
     do {
         printf("Valor de mercado (R$): ");
         if (scanf("%f", &v->valor_mercado) != 1 || v->valor_mercado <= 0) {
+            if (feof(stdin)) { printf("\nEntrada finalizada.\n"); exit(0); }
             printf("Erro: Valor deve ser maior que zero.\n");
             v->valor_mercado = 0;
         }
