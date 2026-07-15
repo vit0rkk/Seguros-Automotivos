@@ -1,0 +1,5 @@
+*.o
+cotacao
+cotacao.exe
+cotacoes.dat
+output/
